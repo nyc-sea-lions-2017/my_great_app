@@ -18,6 +18,10 @@
           <li class="nav-item">
           <%= link_to 'logout', destroy_author_session_path, method: :delete, class: "nav-link #{yield(:author)}" %>
           </li>
+          <% else %>
+            <li class="list-group-item">
+              <%= link_to 'login', new_author_session_path, class: "nav-link" %>
+          </li>
         <% end %>
       </ul>
     </div>
