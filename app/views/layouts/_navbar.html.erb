@@ -15,7 +15,7 @@
           <li class="list-group-item">
             <%= link_to 'My posts', authors_posts_path, class: "nav-link #{yield(:author)}" %>
           </li>
-          <li class="nav-item">
+          <li class="list-group-item">
           <%= link_to 'logout', destroy_author_session_path, method: :delete, class: "nav-link #{yield(:author)}" %>
           </li>
           <% else %>
@@ -46,13 +46,17 @@
       <li class="nav-item">
         <%= link_to 'Contact', contact_path, class: "nav-link #{yield(:contact_active)}" %>
       </li>
-      <% if author_signed_in? %>
+       <% if author_signed_in? %>
         <li class="nav-item">
         <%= link_to 'My posts', authors_posts_path, class: "nav-link #{yield(:author)}" %>
       </li>
         <li class="nav-item">
         <%= link_to 'logout', destroy_author_session_path, method: :delete, class: "nav-link #{yield(:author)}" %>
       </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'login', new_author_session_path, class: "nav-link" %>
+        </li>
       <% end %>
     </ul>
   </div>
